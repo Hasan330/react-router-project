@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class PostIndex extends Component{
 	render(){
-		retrun(
+		return(
 			<div>
 				Posts Index
 			</div>
