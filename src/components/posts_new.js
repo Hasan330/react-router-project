@@ -25,8 +25,8 @@ class PostsNew extends Component {
 				/>
 
 				<Field
-					label="Tags"
-					name="tags"
+					label="Categories"
+					name="categories"
 					component={this.renderField}
 				/>
 
@@ -35,12 +35,36 @@ class PostsNew extends Component {
 					name="content"
 					component={this.renderField}
 				/>
-				
+
 			</form>
 		)
 	}
 }
 
+function validate(values){
+	//console.log(values) --> { title: 'asda', categories: 'hsda', content: 'asdr'}
+
+	const errors ={};
+
+	//Validate the inputs from 'values'
+	if(!values.title || values.title.length < 3){
+		errors.title = "Enter a title that is at least 3 characters long!"
+	}
+
+	if(!values.categories){
+		errors.categories = "Enter some categories"
+	}
+
+	if(!values.content){
+		errors.content = "Enter some content please"
+	}
+
+	//If errors is empty, the form is fine to submit
+	//If errors has *any* properties, redux form assumes form is invalid
+	return errors;
+}
+
 export default reduxForm({
+	validate,
 	form: 'PostsNewForm'
 }) (PostsNew);
