@@ -6,7 +6,7 @@ export default function (state = {}, action) {
 
 	switch(action.type) {
 		case FETCH_POSTS:
-			console.log(action.payload.data); //array of posts --> transform to object
+			console.log("Data --> ", action.payload.data); //array of posts --> transform to object
 			return _.mapKeys(action.payload.data, 'id');
 
 		default: 
