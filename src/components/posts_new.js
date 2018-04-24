@@ -5,11 +5,19 @@ class PostsNew extends Component {
 
 	renderTitleField(field){
 		return(
-			<div>
+			<div className='form-group'>
+				<label> Title </label>
 				<input
+					className='form-control'
 					{...field.input}
 				/>
 			</div>
+		)
+	}
+
+	renderTagsField(field){
+		return(
+			
 		)
 	}
 
@@ -19,6 +27,11 @@ class PostsNew extends Component {
 				<Field
 					name="title"
 					component={this.renderTitleField}
+				/>
+
+				<Field
+					name="tags"
+					component={this.renderTagsField}
 				/>
 			</form>
 		)
