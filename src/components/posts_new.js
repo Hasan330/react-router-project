@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPost } from '../actions';
 
 class PostsNew extends Component {
-
 	renderField(field){
 		const { meta: { touched, error } } = field;  //destructuring  field --> meta --> touched, error
 		const className = `form-group ${touched && error? 'has-danger': ''}`;  //conditional styling
@@ -24,8 +25,11 @@ class PostsNew extends Component {
 	}
 
 	onSubmit(values){
-		// this === component
-		console.log(values);
+		//Send to the BE API
+		this.props.createPost(values, () => {
+			this.props.history.push('/');
+		})
+
 	}
 
 	render(){
@@ -87,4 +91,6 @@ function validate(values){
 export default reduxForm({
 	validate,
 	form: 'PostsNewForm'
-}) (PostsNew);
+})(
+	connect(null, { createPost })(PostsNew)
+);
