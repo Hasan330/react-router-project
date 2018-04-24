@@ -11,7 +11,7 @@ class PostsNew extends Component {
 					className='form-control'
 					{...field.input}
 				/>
-				{field.meta.error}
+				{field.meta.touched ? field.meta.error : ''}
 			</div>
 		)
 	}
@@ -23,8 +23,6 @@ class PostsNew extends Component {
 
 	render(){
 		const { handleSubmit } = this.props;
-
-
 
 		return(
 			<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
