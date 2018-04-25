@@ -11,7 +11,7 @@ export default function (state = {}, action) {
 			// newState[post.id] = post;
 			// return newState;
 
-			return { ...state, [action.payload.data.id]: action.payload.data}. //key interpolation
+			return { ...state, [action.payload.data.id]: action.payload.data} //key interpolation
 
 		case FETCH_POSTS:
 			console.log("Data --> ", action.payload.data); //array of posts --> transform to object
