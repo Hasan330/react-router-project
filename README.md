@@ -1,4 +1,4 @@
-# React Router Project
+# React Router Project (Blog-Post App)
 
 ## Simple React Router Project that deals with page navigations and form validation
 
