@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost } from '../actions';
+import { fetchPost, deletePost } from '../actions';
 import { Link } from 'react-router-dom';
 
 
@@ -16,7 +16,9 @@ class PostsShow extends Component{
 
 	onDeleteClick(){
 		const { id } = this.props.match.params;  //provided by react-router
-		this.props.deletePost(id); //action creator name
+		this.props.deletePost(id, () => {
+			this.props.history.push('/');
+		});
 	}
 
 	render(){
