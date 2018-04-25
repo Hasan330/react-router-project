@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom';
 class PostsShow extends Component{
 
 	componentDidMount(){
-		const { id } = this.props.match.params;  //provided by react-router
-		this.props.fetchPost(id);
+		if(!this.props.post){
+			const { id } = this.props.match.params;  //provided by react-router
+			this.props.fetchPost(id);
+		}
 	}
 
 	render(){
